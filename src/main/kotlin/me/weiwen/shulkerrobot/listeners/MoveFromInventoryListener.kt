@@ -46,7 +46,7 @@ object MoveFromInventoryListener : Listener {
         val shulkerBoxItem = event.cursor
         if (isShulkerBoxOpen(shulkerBoxItem)) return
 
-        val item = event.currentItem ?: return
+        val item = event.currentItem ?: ItemStack.empty()
 
         val player = event.whoClicked
         if (!player.hasPermission("shulkerrobot.move-from-inventory")) return
