@@ -2,16 +2,14 @@ package me.weiwen.shulkerrobot.listeners
 
 import me.weiwen.shulkerrobot.ShulkerRobot.Companion.plugin
 import me.weiwen.shulkerrobot.firstShulkerBoxContaining
+import me.weiwen.shulkerrobot.matches
 import me.weiwen.shulkerrobot.moveFromShulkerBox
-import me.weiwen.shulkerrobot.moveIntoShulkerBox
 import net.kyori.adventure.key.Key
 import net.kyori.adventure.sound.Sound
-import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.EventPriority
 import org.bukkit.event.Listener
 import org.bukkit.event.block.BlockPlaceEvent
-import org.bukkit.event.entity.EntityPickupItemEvent
 
 object RefillFromShulkerBoxListener : Listener {
     @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
@@ -23,6 +21,8 @@ object RefillFromShulkerBoxListener : Listener {
         if (!player.hasPermission("shulkerrobot.refill")) return
 
         val item = event.itemInHand.clone()
+        if (!item.matches(player.inventory.itemInMainHand, true) && !item.matches(player.inventory.itemInOffHand, true)) return
+
         val refillWhenAmount = (plugin.config.refillWhenRatio * item.maxStackSize).toInt()
         if (item.amount - 1 > refillWhenAmount) return
 
