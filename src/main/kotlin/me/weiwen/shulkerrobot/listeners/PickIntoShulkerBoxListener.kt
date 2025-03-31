@@ -17,7 +17,7 @@ object PickIntoShulkerBoxListener : Listener {
         if (!plugin.config.canPickIntoShulkerBox) return
 
         val player = event.entity as? Player ?: return
-        if (!player.hasPermission("shulkerrobot.pick-into-shulker-box")) return
+        if (!player.hasPermission("shulkerrobot.pick")) return
 
         val item = event.item.itemStack
         val amount = item.amount

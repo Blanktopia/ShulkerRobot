@@ -20,7 +20,7 @@ object RefillFromShulkerBoxListener : Listener {
         if (!event.canBuild()) return
 
         val player = event.player
-        if (!player.hasPermission("shulkerrobot.refill-from-shulker-box")) return
+        if (!player.hasPermission("shulkerrobot.refill")) return
 
         val item = event.itemInHand.clone()
         val refillWhenAmount = (plugin.config.refillWhenRatio * item.maxStackSize).toInt()

@@ -21,7 +21,7 @@ object MoveFromInventoryListener : Listener {
         if (!plugin.config.canMoveFromInventory) return
         if (event.type != DragType.SINGLE) return
         if (!MaterialTags.SHULKER_BOXES.isTagged(event.oldCursor)) return
-        if (!event.view.player.hasPermission("shulkerrobot.move-from-inventory")) return
+        if (!event.view.player.hasPermission("shulkerrobot.inventory")) return
         event.isCancelled = true
     }
 
