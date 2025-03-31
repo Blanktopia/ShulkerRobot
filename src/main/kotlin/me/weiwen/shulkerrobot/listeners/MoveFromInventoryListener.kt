@@ -12,6 +12,7 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.EventPriority
 import org.bukkit.event.Listener
 import org.bukkit.event.inventory.*
+import org.bukkit.inventory.ItemStack
 
 object MoveFromInventoryListener : Listener {
 
@@ -66,18 +67,18 @@ object MoveFromInventoryListener : Listener {
                     return
                 }
                 event.view.setItem(event.rawSlot, remainder)
-                player.world.playSound(Sound.sound(Key.key("block.shulker_box.open"), Sound.Source.PLAYER, 0.2f, 1.0f))
+                player.world.playSound(Sound.sound(Key.key("block.shulker_box.open"), Sound.Source.PLAYER, 0.2f, 1.0f), player)
             }
         } else if (event.click == ClickType.RIGHT) {
             if (item.type == Material.AIR) {
                 val item = moveFromShulkerBox(shulkerBoxItem, item)
                 event.isCancelled = true
                 if (item.isEmpty) {
-                    player.playSound(Sound.sound(Key.key("item.bundle.insert_fail"), Sound.Source.PLAYER, 1.0f, 1.0f))
+                    player.playSound(Sound.sound(Key.key("item.bundle.insert_fail"), Sound.Source.PLAYER, 1.0f, 1.0f), player)
                     return
                 }
                 event.view.setItem(event.rawSlot, item)
-                player.world.playSound(Sound.sound(Key.key("block.shulker_box.open"), Sound.Source.PLAYER, 0.2f, 1.0f))
+                player.world.playSound(Sound.sound(Key.key("block.shulker_box.open"), Sound.Source.PLAYER, 0.2f, 1.0f), player)
             }
         }
     }
@@ -105,7 +106,7 @@ object MoveFromInventoryListener : Listener {
                     return
                 }
                 event.setCursor(remainder)
-                player.world.playSound(Sound.sound(Key.key("block.shulker_box.open"), Sound.Source.PLAYER, 0.2f, 1.0f))
+                player.world.playSound(Sound.sound(Key.key("block.shulker_box.open"), Sound.Source.PLAYER, 0.2f, 1.0f), player)
             }
         }
     }

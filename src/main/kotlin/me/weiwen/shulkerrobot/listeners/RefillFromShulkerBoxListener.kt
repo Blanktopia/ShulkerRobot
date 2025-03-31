@@ -34,7 +34,7 @@ object RefillFromShulkerBoxListener : Listener {
         val remainder = moveFromShulkerBox(shulkerBoxItem, item)
         event.itemInHand.amount += remainder.amount - 1
         if (remainder.amount != 0) {
-            player.world.playSound(Sound.sound(Key.key("block.shulker_box.open"), Sound.Source.PLAYER, 0.2f, 1.0f))
+            player.world.playSound(Sound.sound(Key.key("block.shulker_box.open"), Sound.Source.PLAYER, 0.2f, 1.0f), player)
         }
     }
 }
