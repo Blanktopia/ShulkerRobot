@@ -27,7 +27,7 @@ dependencies {
     implementation("com.charleskorn.kaml:kaml:0.104.0")
 
     // Paper
-    compileOnly("org.purpurmc.purpur", "purpur-api", "1.21.4-R0.1-SNAPSHOT")
+    compileOnly("org.purpurmc.purpur", "purpur-api", "26.3.build.2654-stable")
 
     // bStats
     implementation("org.bstats", "bstats-bukkit", "1.8")
@@ -38,7 +38,7 @@ bukkit {
     name = "ShulkerRobot"
     version = project.version.toString()
     description = "Better inventory management with shulker boxes"
-    apiVersion = "1.21.4"
+    apiVersion = "26.3"
     author = "Goh Wei Wen <goweiwen@gmail.com>"
     website = "weiwen.me"
 }
